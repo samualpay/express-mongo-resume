@@ -129,15 +129,18 @@
         <form class="kpx_loginForm" action="/login" autocomplete="off" method="POST">
           <div class="input-group">
             <span class="input-group-addon"><span class="fa fa-user"></span></span>
-            <input type="text" class="form-control" name="account" placeholder="account">
+            <input type="text" class="form-control" name="account" placeholder="account" value="<%= locals.account || '' %>">
           </div>
           <hr />
           <div class="input-group">
             <span class="input-group-addon"><span class="fa fa-key"></span></span>
-            <input type="password" class="form-control" name="password" placeholder="Password">
+            <input type="password" class="form-control" name="password" placeholder="Password" value="<%= locals.password || '' %>">
           </div>
-          <span class="tag tag-danger">Password Error!</span> | <span class="tag tag-success">Login success!</span> |
-          <span class="tag tag-warning">Some of password must not be empty!</span>
+          <% if(locals.loginFailed) {%> 
+          <span class="tag tag-danger">Login failed!</span>
+          <% } %>
+          <!-- | <span class="tag tag-success">Login success!</span> |
+          <span class="tag tag-warning">Some of password must not be empty!</span> -->
           <hr />
           <button class="btn btn-lg btn-outline-primary btn-block" type="submit"><i class="fa fa-sign-in"></i>
             Login</button>
@@ -153,17 +156,11 @@
           <span class="custom-control-description">Remember me!</span>
         </label>
         </p>
-
       </div>
       <div class="col-xs-12 col-sm-3">
         <p class="kpx_forgotPwd">
           <a href="#">Forgot password?</a>
         </p>
-      </div>
-
-      <div class="col-lg-12">
-        <p class="text-lg-center text-md-center text-sm-center text-xs-center">Created by <a
-            href="http://www.koalapix.com" target="_blank">koalapix. studio</a>, for crazy developers...</p>
       </div>
     </div>
   </div>

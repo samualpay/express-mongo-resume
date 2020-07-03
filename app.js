@@ -4,10 +4,12 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 
+const authMiddleware = require('./middleware/auth')
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const loginRouter = require('./routes/login')
 const logoutRouter = require('./routes/logout')
+const resumeRouter = require('./routes/resume')
 const app = express()
 
 // view engine setup
@@ -19,14 +21,17 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
-
+app.use(authMiddleware.info)
+app.use('/login', authMiddleware.needLogout)
+app.use('/resumes', authMiddleware.auth)
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 app.use('/login', loginRouter)
 app.use('/logout', logoutRouter)
+app.use('/resumes', resumeRouter)
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  res.redirect('/login')
+  res.redirect('/')
 })
 
 // error handler

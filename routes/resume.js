@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-/* GET home page. */
+/* GET Resumes page. */
 router.get('/', async function (req, res, next) {
-  res.render('index')
+  res.render('resumes')
 })
 module.exports = router

@@ -1,4 +1,11 @@
 <% include  header%>
 <h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+<p>Welcome <%= name %></p>
+<% if(locals.isLogin) { %>
+  <p>login success</p>
+  <a href ="/logout">Logout</a>
+<%} else {%>
+<a href="/login">Login</a>
+<a href="/register">register</a>
+<% } %>
 <% include footer%>

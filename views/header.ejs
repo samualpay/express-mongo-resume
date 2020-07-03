@@ -32,7 +32,7 @@
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <% if(locals.isAuthenticated()) {%> 
-          <li class="nav-item <%= ((/\/resumes/).test(locals.path))?'active': ''  %> ">
+          <li class="nav-item <%= ((/\/resumes*/).test(locals.path))?'active': ''  %> ">
             <a class="nav-link" href="/resumes">Resumes</a>
           </li>
         <% } %> 

@@ -1,3 +1,30 @@
 <% include  header%>
-<p>Resumes <%= locals.user.name || 'to this site' %></p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-bordred table-striped">
+                <thead>
+                    <th>title</th>
+                    <th>create time</th>
+                    <th>last update time</th>
+                    <th>preview</th>
+                    <th>edit</th>
+                    <th>delete</th>
+                </thead>
+                <tbody>
+                    <% resumes.forEach(elem => { %>
+                        <tr>
+                            <td>elem.title</td>
+                            <td>elem.createAt</td>
+                            <td>elem.updateAt</td>
+                            <td><a href="/preview/type/<%= elem.type %>/theme/<%= elem.theme %>/<%= elem.id %>">preview</a></td>
+                            <td><button class="btn btn-primary"><span class="glypicon glyphicon-pencil"></span></button></td>
+                            <td><button class="btn btn-danger"><span class="glypicon glyphicon-trash"></span></button></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 <% include footer%>

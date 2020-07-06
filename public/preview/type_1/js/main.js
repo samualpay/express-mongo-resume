@@ -76,64 +76,20 @@ $(window).on('load', function() {
 		mainClass: 'img-popup-warp',
 		removalDelay: 500,
 	});
-
-
-
-
 if($().circleProgress){
-
-	//Set progress circle 1
-	$("#progress1").circleProgress({
-		value: 0.75,
-		size: 175,
-		thickness: 2,
-		fill: "#40424a",
-		emptyFill: "rgba(0, 0, 0, 0)"
-	});
-	//Set progress circle 2
-	$("#progress2").circleProgress({
-		value: 0.83,
-		size: 175,
-		thickness: 2,
-		fill: "#40424a",
-		emptyFill: "rgba(0, 0, 0, 0)"
-	});
-
-	//Set progress circle white
-	$("#progress3").circleProgress({
-		value: 0.75,
-		size: 175,
-		thickness: 2,
-		fill: "#ffffff",
-		emptyFill: "rgba(0, 0, 0, 0)"
-	});
-
-	//Set progress circle white
-	$("#progress4").circleProgress({
-		value: 0.83,
-		size: 175,
-		thickness: 2,
-		fill: "#ffffff",
-		emptyFill: "rgba(0, 0, 0, 0)"
-	});
-
-	//Set progress circle skyblue
-	$("#progress5").circleProgress({
-		value: 0.75,
-		size: 175,
-		thickness: 2,
-		fill: "#009fff",
-		emptyFill: "rgba(0, 0, 0, 0)"
-	});
-
-	//Set progress circle skyblue
-	$("#progress6").circleProgress({
-		value: 0.83,
-		size: 175,
-		thickness: 2,
-		fill: "#009fff",
-		emptyFill: "rgba(0, 0, 0, 0)"
-	});
+	$(".prog-circle").each(function(){
+		let type = $(this).data("type")
+		if(type === "progress"){
+			let percent = parseInt($(this).data("percent"))/100
+			$(this).circleProgress({
+				value: percent,
+				size: 175,
+				thickness: 2,
+				fill: "#40424a",
+				emptyFill: "rgba(0, 0, 0, 0)"
+			})
+		}
+	})
 }
 
 })(jQuery);

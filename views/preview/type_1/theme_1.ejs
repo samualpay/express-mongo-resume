@@ -39,14 +39,14 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="site-logo">
-						<h2><a href="#">Civic</a></h2>
-						<p>Enhance your online presence</p>
+						<h2><a href="#"><%= title %> </a></h2>
+						<!-- <p>Enhance your online presence</p> -->
 					</div>
 				</div>
-				<div class="col-md-8 text-md-right header-buttons">
+				<!-- <div class="col-md-8 text-md-right header-buttons">
 					<a href="#" class="site-btn">Download CV</a>
 					<a href="#" class="site-btn">Discover me</a>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</header>
@@ -60,24 +60,30 @@
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="hero-text">
-								<h2>Maria Williams</h2>
-								<p>I’m a digital designer in love with photography, painting and discovering new worlds and cultures.</p>
+								<h2><%= name %> </h2>
+								<p><%=  introduction%> </p>
+								<!-- <h2>Maria Williams</h2>
+								<p>I’m a digital designer in love with photography, painting and discovering new worlds and cultures.</p> -->
 							</div>
 							<div class="hero-info">
-								<h2>General Info</h2>
+								<h2><%= info.title %> </h2>
+								<!-- <h2>General Info</h2> -->
 								<ul>
-									<li><span>Date of Birth</span>Aug 25, 1988</li>
+									<% info.list.forEach(elem => { %>
+										<li><span><%= elem.label %> </span><%= elem.content %> </li>
+									<% }) %>
+									<!-- <li><span>Date of Birth</span>Aug 25, 1988</li>
 									<li><span>Address</span>Rosia Road 55, Gibraltar, UK</li>
 									<li><span>E-mail</span>mariawilliams@company.com</li>
-									<li><span>Phone </span>+43 5266 22 345</li>
+									<li><span>Phone </span>+43 5266 22 345</li> -->
 								</ul>
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<figure class="hero-image">
-								<img src="/preview/type_1/img/hero.jpg" alt="5">
+								<img src="<%= heroImage %> " alt="5">
+								<!-- <img src="/preview/type_1/img/hero.jpg" alt="5"> -->
 							</figure>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -92,11 +98,14 @@
 				<div class="col-xl-10 offset-xl-1">
 					<div class="social-link-warp">
 						<div class="social-links">
-							<a href=""><i class="fa fa-pinterest"></i></a>
+							<% socialLinks.forEach(elem => { %> 
+								<a href="<%= elem.url  %> "><i class="fa fa-<%= elem.type %> "></i></a>
+							<% }) %>
+							<!-- <a href=""><i class="fa fa-pinterest"></i></a>
 							<a href=""><i class="fa fa-linkedin"></i></a>
 							<a href=""><i class="fa fa-instagram"></i></a>
 							<a href=""><i class="fa fa-facebook"></i></a>
-							<a href=""><i class="fa fa-twitter"></i></a>
+							<a href=""><i class="fa fa-twitter"></i></a> -->
 						</div>
 						<h2 class="hidden-md hidden-sm">My Social Profiles</h2>
 					</div>
@@ -115,7 +124,15 @@
 						<h2>Work Experience</h2>
 					</div>
 					<ul class="resume-list">
+						<% workExperienceList.forEach( elem => { %> 
 						<li>
+							<h2><%= elem.startAt %>-<%= elem.endAt %></h2>
+							<h3><%= elem.company %></h3>
+							<h4><%= elem.title %></h4>
+							<p><%= elem.description %></p>
+						</li>
+						<% }) %> 
+						<!-- <li>
 							<h2>2016-Present</h2>
 							<h3>Web Design Company</h3>
 							<h4>Web Designer</h4>
@@ -126,7 +143,7 @@
 							<h3>Web Design Company</h3>
 							<h4>Web Designer</h4>
 							<p>Sit amet, consectetur adipiscing elit. Sed porttitor orci ut sapien scelerisque viverra. Sed trist ique justo nec mauris efficitur, ut lacinia elit dapibus. In egestas elit in dap ibus laoreet. Duis magna libero, fermentum ut facilisis id, pulvinar eget tortor. Vestibulum pelle ntesque tincidunt lorem, vitae euismod felis porttitor sed. </p>
-						</li>
+						</li> -->
 					</ul>
 				</div>
 			</div>
@@ -143,7 +160,15 @@
 						<h2>Education</h2>
 					</div>
 					<ul class="resume-list">
-						<li>
+						<% educationList.forEach(elem => { %>
+							<li>
+								<h2><%= elem.startAt %> -<%= elem.endAt %> </h2>
+								<h3><%= elem.diploma %> </h3>
+								<h4><%= elem.college %> </h4>
+								<p><%= elem.description %> </p>
+							</li>
+						<% }) %> 
+						<!-- <li>
 							<h2>2008</h2>
 							<h3>Ui/Ux Diploma</h3>
 							<h4>Design College California</h4>
@@ -154,7 +179,7 @@
 							<h3>Web design Diploma</h3>
 							<h4>Design College California</h4>
 							<p>Sit amet, consectetur adipiscing elit. Sed porttitor orci ut sapien scelerisque viverra. Sed trist ique justo nec mauris efficitur, ut lacinia elit dapibus. In egestas elit in dap ibus laoreet. Duis magna libero, fermentum ut facilisis id, pulvinar eget tortor. Vestibulum pelle ntesque tincidunt lorem, vitae euismod felis porttitor sed. </p>
-						</li>
+						</li> -->
 					</ul>
 				</div>
 			</div>
@@ -172,24 +197,14 @@
 						<h2>References</h2>
 					</div>
 					<div class="review-slider owl-carousel">
-						<div class="single-review">
-							<div class="qut">“</div>
-							<p>Sit amet, consectetur adipiscing elit. Sed porttitor orci ut sapien scelerisque viverra. Sed trist ique justo nec mauris efficitur, ut lacinia elit dapibus. In egestas elit in dap ibus laoreet. Duis magna libero, fermentum ut facilisis id, pulvinar eget tortor. Vestibulum pelle ntesque tincidunt lorem, vitae euismod felis porttitor sed. </p>
-							<h3>Robert G. Smith</h3>
-							<h4>Manager, Company</h4>
-						</div>
-						<div class="single-review">
-							<div class="qut">“</div>
-							<p>Sit amet, consectetur adipiscing elit. Sed porttitor orci ut sapien scelerisque viverra. Sed trist ique justo nec mauris efficitur, ut lacinia elit dapibus. In egestas elit in dap ibus laoreet. Duis magna libero, fermentum ut facilisis id, pulvinar eget tortor. Vestibulum pelle ntesque tincidunt lorem, vitae euismod felis porttitor sed. </p>
-							<h3>Robert G. Smith</h3>
-							<h4>Manager, Company</h4>
-						</div>
-						<div class="single-review">
-							<div class="qut">“</div>
-							<p>Sit amet, consectetur adipiscing elit. Sed porttitor orci ut sapien scelerisque viverra. Sed trist ique justo nec mauris efficitur, ut lacinia elit dapibus. In egestas elit in dap ibus laoreet. Duis magna libero, fermentum ut facilisis id, pulvinar eget tortor. Vestibulum pelle ntesque tincidunt lorem, vitae euismod felis porttitor sed. </p>
-							<h3>Robert G. Smith</h3>
-							<h4>Manager, Company</h4>
-						</div>
+						<% referenceList.forEach(elem => { %>
+							<div class="single-review">
+								<div class="qut">“</div>
+								<p><%= elem.description %> </p>
+								<h3><%= elem.name %> </h3>
+								<h4><%= elem.title %> </h4>
+							</div>
+						<% }) %> 
 					</div>
 				</div>
 			</div>
@@ -207,40 +222,21 @@
 						<h2>Portfolio</h2>
 					</div>
 				</div>
-				<div class="col-md-4 text-md-right">
+				<!-- <div class="col-md-4 text-md-right">
 					<a href="#" class="site-btn mb-5">See All Portfolio</a>
-				</div>
+				</div> -->
 			</div>
 			<div class="portfolio-warp">
 				<div class="row">
-					<div class="col-xl-3 col-lg-6 col-md-6">
-						<div class="portfolio-item">
-							<a href="/preview/type_1/img/portfolio/1.jpg" class="set-bg port-pic" data-setbg="/preview/type_1/img/portfolio/1.jpg"></a>
-							<h2>Brand Campaign</h2>
-							<p>Graphic design</p>
+					<% portfolioList.forEach(elem => { %>
+						<div class="col-xl-3 col-lg-6 col-md-6">
+							<div class="portfolio-item">
+								<a href="<%= elem.url %> " class="set-bg port-pic" data-setbg="<%= elem.img %> "></a>
+								<h2><%= elem.name %> </h2>
+								<p><%= elem.category %> </p>
+							</div>
 						</div>
-					</div>
-					<div class="col-xl-3 col-lg-6 col-md-6">
-						<div class="portfolio-item">
-							<a href="/preview/type_1/img/portfolio/2.jpg" class="set-bg port-pic" data-setbg="/preview/type_1/img/portfolio/2.jpg"></a>
-							<h2>A Corporate Identity</h2>
-							<p>Graphic design</p>
-						</div>
-					</div>
-					<div class="col-xl-3 col-lg-6 col-md-6">
-						<div class="portfolio-item">
-							<a href="/preview/type_1/img/portfolio/3.jpg" class="set-bg port-pic" data-setbg="/preview/type_1/img/portfolio/3.jpg"></a>
-							<h2>Web Design Website</h2>
-							<p>Graphic design</p>
-						</div>
-					</div>
-					<div class="col-xl-3 col-lg-6 col-md-6">
-						<div class="portfolio-item">
-							<a href="/preview/type_1/img/portfolio/4.jpg" class="set-bg port-pic" data-setbg="/preview/type_1/img/portfolio/4.jpg"></a>
-							<h2>Logo design</h2>
-							<p>Graphic design</p>
-						</div>
-					</div>
+					<% }) %>
 				</div>
 			</div>
 		</div>
@@ -253,59 +249,29 @@
 			<div class="row">
 				<div class="col-xl-8 offset-xl-2">
 					<div class="section-title">
-						<h2>Extra Skills</h2>
+						<h2>Skills</h2>
 					</div>
 					<div class="row">
-						<div class="col-lg-3 col-md-6 pt-5">
-							<div class="fact-box trans">
-								<div class="fact-content">
-									<div class="circle-progress">
-										<div id="progress1" class="prog-circle"></div>
-										<div class="progress-info">
-											<h2>75%</h2>
+						<% skills.forEach(elem => { %>
+							<% if(elem.type == 'progress'){ %>
+								<div class="col-lg-3 col-md-6 pt-5">
+									<div class="fact-box trans">
+										<div class="fact-content">
+											<div class="circle-progress">
+												<div class="prog-circle" data-percent="<%= elem.columns.percent %>" data-type="<%= elem.type %>"></div>
+												<div class="progress-info">
+													<h2><%= elem.columns.percent %>%</h2>
+												</div>
+												<div class="prog-title">
+													<h3><%= elem.columns.name %></h3>
+													<p><%= elem.columns.description %></p>
+												</div>			
+											</div>
 										</div>
-										<div class="prog-title">
-											<h3>Inspiration</h3>
-											<p>Etiam nec odio vestibulum est.</p>
-										</div>			
 									</div>
 								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 pt-5">
-							<div class="fact-box trans">
-								<div class="fact-content">
-									<div class="circle-progress">
-										<div id="progress2" class="prog-circle"></div>
-										<div class="progress-info">
-											<h2>83%</h2>
-										</div>
-										<div class="prog-title">
-											<h3>Inspiration</h3>
-											<p>Etiam nec odio vestibulum est.</p>
-										</div>			
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6">
-							<div class="fact-box">
-								<div class="fact-content">
-									<img src="/preview/type_1/img/icon/1-w.png" alt="">
-									<h2>14</h2>
-									<p>Years of Experience</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6">
-							<div class="fact-box">
-								<div class="fact-content">
-									<img src="/preview/type_1/img/icon/2-w.png" alt="">
-									<h2>9</h2>
-									<p>Awards Won</p>
-								</div>
-							</div>
-						</div>
+							<% } %>
+						<% }) %>
 					</div>
 				</div>
 			</div>
@@ -324,18 +290,21 @@
 					<form class="contact-form">
 						<div class="row">
 							<div class="col-md-6">
-								<input type="text" placeholder="Name">
+								<input type="text" name="name" placeholder="Name">
 							</div>
 							<div class="col-md-6">
-								<input type="text" placeholder="E-mail">
+								<input type="text" name="email" placeholder="E-mail">
 							</div>
 							<div class="col-md-12">
-								<input type="text" placeholder="Subject">
-								<textarea placeholder="Message"></textarea>
+								<input type="text"name="subject"  placeholder="Subject">
+								<textarea name="message" placeholder="Message"></textarea>
+								<input type="hidden" name="id" value="<%= id %> ">
+								<input type="hidden" name="type" value="<%= type %> ">
+								<input type="hidden" name="theme" value="<%= theme %> ">
 							</div>
 						</div>
 						<div class="text-md-right">
-							<button class="site-btn">Send message</button>
+							<button type="submit" class="site-btn">Send message</button>
 						</div>
 					</form>
 				</div>

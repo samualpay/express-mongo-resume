@@ -10,6 +10,7 @@ const usersRouter = require('./routes/users')
 const loginRouter = require('./routes/login')
 const logoutRouter = require('./routes/logout')
 const resumeRouter = require('./routes/resume')
+const previewRouter = require('./routes/preview')
 const app = express()
 
 // view engine setup
@@ -29,6 +30,7 @@ app.use('/users', usersRouter)
 app.use('/login', loginRouter)
 app.use('/logout', logoutRouter)
 app.use('/resumes', resumeRouter)
+app.use('/preview', previewRouter)
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   res.redirect('/')

@@ -14,10 +14,10 @@
                 <tbody>
                     <% resumes.forEach(elem => { %>
                         <tr>
-                            <td>elem.title</td>
-                            <td>elem.createAt</td>
-                            <td>elem.updateAt</td>
-                            <td><a href="/preview/type/<%= elem.type %>/theme/<%= elem.theme %>/<%= elem.id %>">preview</a></td>
+                            <td><%= elem.title %> </td>
+                            <td><%=  elem.createAt%> </td>
+                            <td><%=  elem.updateAt%> </td>
+                            <td><a href="/preview/type/<%= elem.type %>/theme/<%= elem.theme %>/<%= elem.id %>" target="_blank">preview</a></td>
                             <td><button class="btn btn-primary"><span class="glypicon glyphicon-pencil"></span></button></td>
                             <td><button class="btn btn-danger"><span class="glypicon glyphicon-trash"></span></button></td>
                         </tr>
